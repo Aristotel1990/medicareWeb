@@ -1,14 +1,13 @@
 import * as Yup from "yup";
 
-import React, { useState } from "react";
+import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useFormik, Form, FormikProvider } from "formik";
+import { useFormik } from "formik";
 import useAuth from "../hooks/useAuth";
 import { PATH_PAGE } from "../routes/paths";
 
 const Signup = () => {
-  const { login, register } = useAuth();
-  const [samePas, setSame] = useState(null);
+  const { register } = useAuth();
   const navigate = useNavigate();
 
   // const { user, logIn } = UserAuth();
@@ -49,8 +48,7 @@ const Signup = () => {
       }
     },
   });
-  const { errors, touched, values, handleSubmit, isSubmitting, getFieldProps } =
-    formik;
+  const { touched, handleSubmit } = formik;
   return (
     <form
       autoComplete="off"

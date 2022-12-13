@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import HomePage from "./HomePage";
 import { useDispatch } from "../redux/store";
 import ListAppointment from "./ListAppointment";
 import NewAppointment from "./NewAppointment";
@@ -16,7 +15,8 @@ function Dashboard() {
   useEffect(() => {
     dispatch(getMyDoctor());
     dispatch(getCurrentUser());
-  }, []);
+  }, [dispatch]);
+
   const ACCOUNT_TABS = [
     {
       value: "List",

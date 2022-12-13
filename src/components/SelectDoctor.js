@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
-import { getTowDoctors, selectDoctor } from "../redux/slices/user";
+import { selectDoctor } from "../redux/slices/user";
 import { useDispatch, useSelector } from "../redux/store";
 import { PATH_PAGE } from "../routes/paths";
 

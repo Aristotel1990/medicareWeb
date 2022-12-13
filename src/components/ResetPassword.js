@@ -1,16 +1,12 @@
 import * as Yup from "yup";
 
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { useFormik, Form, FormikProvider } from "formik";
+import React, { useState } from "react";
+import { useFormik } from "formik";
 import useAuth from "../hooks/useAuth";
-import { PATH_PAGE } from "../routes/paths";
-import { useSelector, useDispatch } from "../redux/store";
 
 const ResetPassword = () => {
   const { resetPassword, error } = useAuth();
   const [showAlert, setShowAlert] = useState(false);
-  const [errorMsg, seterrorMsg] = useState(null);
 
   // const { user, logIn } = UserAuth();
   const ChangePassWordSchema = Yup.object().shape({
@@ -43,7 +39,7 @@ const ResetPassword = () => {
       }
     },
   });
-  const { errors, touched, isSubmitting, handleSubmit, getFieldProps } = formik;
+  const { touched, handleSubmit, getFieldProps } = formik;
 
   return (
     <>

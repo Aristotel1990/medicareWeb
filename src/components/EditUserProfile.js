@@ -1,10 +1,8 @@
 import * as Yup from "yup";
 
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { useFormik, Form, FormikProvider } from "formik";
-import useAuth from "../hooks/useAuth";
-import { PATH_PAGE } from "../routes/paths";
+import React from "react";
+import { useFormik } from "formik";
+
 import { useSelector, useDispatch } from "../redux/store";
 import { editUser, getCurrentUser, changeStatus } from "../redux/slices/user";
 import EditModal from "./EditModal";
@@ -12,7 +10,6 @@ import EditModal from "./EditModal";
 const EditUserProfile = () => {
   const { user } = useSelector((state) => state.user);
 
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   // const { user, logIn } = UserAuth();
@@ -45,7 +42,7 @@ const EditUserProfile = () => {
     },
     validationSchema: EditSchema,
 
-    onSubmit: async (values, { setErrors, resetForm, setSubmitting }) => {
+    onSubmit: async (values, { setErrors, setSubmitting }) => {
       try {
         await editUser(values);
         setSubmitting(false);
@@ -58,8 +55,7 @@ const EditUserProfile = () => {
       }
     },
   });
-  const { errors, touched, values, handleSubmit, isSubmitting, getFieldProps } =
-    formik;
+  const { touched, handleSubmit } = formik;
   return (
     <div className="mt-10 sm:mt-0">
       <div className="md:grid md:grid-cols-3 md:gap-6">

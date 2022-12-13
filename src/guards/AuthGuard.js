@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 // hooks
 import useAuth from "../hooks/useAuth";
 // pages
-import Login from "../components/Login";
 import { PATH_PAGE } from "../routes/paths";
 
 // ----------------------------------------------------------------------
